@@ -109,9 +109,6 @@
             setcookie("usersPwd", "", 0, '/');
     }
 
-    public function createUserCookie($user){
-
-    }
 
     public function logout(){
         unset($_SESSION['usersId']);
@@ -128,17 +125,6 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $pcase = $_POST['type'];
         $init->$pcase();
-        // switch($_POST['type']){
-        //     case 'register':
-        //         $init->register();
-        //         break;
-        //     case 'login':
-        //         // echo $_POST['usersPwd'];
-        //         $init->login();
-        //         break;
-        //     default:
-        //         redirect("../index.php");
-        // }
         
     }else{
         switch($_GET['q']){
