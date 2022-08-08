@@ -23,8 +23,33 @@ class PagesController extends BaseController
     $this->render('signup');
   }
 
+  public function create()
+  {
+    $this->render('create');
+  }
+
+  public function index()
+  {
+    $this->render('index');
+  }
+
+  public function delete()
+  {
+    $this->render('delete');
+  }
+
+  public function read()
+  {
+    $this->render('read');
+  }
+
   public function error()
   {
     $this->render('error');
+  }
+  
+  public function update()
+  {
+    $this->render('update');
   }
 }

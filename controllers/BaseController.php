@@ -15,9 +15,9 @@ class BaseController
       // Sau khi có kết quả đã được lưu vào biến $content, gọi ra template chung của hệ thống đế hiển thị ra cho người dùng
       require_once('views/layouts/application.php');
       // echo "ok";
-    } else {
+    // } else {
       // Nếu file muốn gọi ra không tồn tại thì chuyển hướng đến trang báo lỗi.
-      header('Location: index.php?controller=pages&action=error');
+      // header('Location: index.php?controller=pages&action=error');
     }
   }
 }

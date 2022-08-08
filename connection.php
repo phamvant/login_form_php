@@ -23,8 +23,8 @@ class Database {
     // private $port = '5432';
 
     //Will be the PDO object
-    private $dbh;
-    private $stmt;
+    public $dbh;
+    public $stmt;
     private $error;
 
     public function __construct(){
@@ -35,10 +35,11 @@ class Database {
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
-
+        
         //Create PDO instance
         try{
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $e){
             $this->error = $e->getMessage();
             echo $this->error;
