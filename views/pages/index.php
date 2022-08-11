@@ -20,70 +20,63 @@
     </style>
     <script>
         $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 </head>
 <body>
+<h3 style="color:white; font-size:20">User: <?= $_SESSION["usersName"] ?></h3>
     <div style="color:white", class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
                         <h2 class="pull-left">Employees Details</h2>
-                        <a href="index.php?controller=pages&action=create" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a>
+                        <a href="index.php?controller=employee&action=create" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a>
                     </div style="color:white">
-                    <?php
-                    include '/home/thuan/login_form_php/controllers/EmployeeController.php';
+                    <table style ="color:white" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                        <th>Number</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if($data) { 
+                            $count = 0;
+                                while($row = $data->fetch(PDO::FETCH_OBJ)){?>
+                                    <tr>
+                                    <td>  <?= $count+=1 ?>  </td>
+                                    <td>  <?= $row->id ?>  </td>
+                                    <td>  <?= $row->name?>  </td>
+                                    <td>  <?= $row->address ?> </td>
+                                    <td>  <?= $row->salary ?> </td>
+                                    <td>
+                                    <a href="index.php?controller=employee&action=read&id=<?= $row->id ?>" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
+                                    <a href="index.php?controller=employee&action=update&id=<?= $row->id ?>" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
+                                    <a href="index.php?controller=employee&action=delete&id=<?= $row->id ?>" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
+                                    </td>
+                                    </tr>
+                                    <?php } ?>  
+                                </tbody>                         
+                            </table>
 
-                    if($data = $init->getE()){
-                    //     if($db->rowCount() > 0 | 1){
-                            echo '<table style ="color:white" class="table table-bordered table-striped">';
-                            echo "<thead>";
-                            echo "<tr>";
-                            echo "<th>ID</th>";
-                            echo "<th>Name</th>";
-                            echo "<th>Address</th>";
-                            echo "<th>Salary</th>";
-                            echo "<th>Action</th>";
-                            echo "</tr>";
-                            echo "</thead>";
-                            echo "<tbody>";
-                                // $db->execute();
-                                while($row = $data->fetch(PDO::FETCH_OBJ)){
-                                    // $row = $db->stmt->fetch(PDO::FETCH_OBJ);
-                                    echo "<tr>";
-                                    echo "<td>" . $row->id . "</td>";
-                                    echo "<td>" . $row->name . "</td>";
-                                    echo "<td>" . $row->address . "</td>";
-                                    echo "<td>" . $row->salary . "</td>";
-                                    echo "<td>";
-                                    echo '<a href="index.php?controller=pages&action=read&id='. $row->id .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                    echo '<a href="index.php?controller=pages&action=update&id='. $row->id .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                    echo '<a href="index.php?controller=pages&action=delete&id='. $row->id .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Free result set
-                            // unset($result);
-                        // } else{
-                        //     echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
-                        // }
+                    <?php
                     } else{
                         echo "Oops! Something went wrong. Please try again later.";
                     }
-                    
-                    // Close connection
-                    unset($pdo);
                     ?>
+                    
                 </div>
             </div>        
         </div>
     </div>
     <div class="floating-container">
-  <!-- <div class="floating-button">+</div> -->
+
   <a href="./index.php?controller=pages&action=home" class="floating-button" name="submit">Home</a>
   <div class="element-container">
   </div>

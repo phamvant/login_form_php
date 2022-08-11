@@ -117,7 +117,7 @@
         $_SESSION['usersName'] = $user->usersName;
         $_SESSION['usersEmail'] = $user->usersEmail;
         // redirect("../index.php");
-        header("location: ../index.php?controller=pages&action=index");
+        header("location: ../index.php?controller=employee&action=index");
         if(isset($_POST['remember'])){
             setcookie("name/email", $data['name/email'], time()+3600*24, '/');
             setcookie("usersPwd", $data['usersPwd'], time()+3600*24, '/');

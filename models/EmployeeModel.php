@@ -12,15 +12,18 @@ class EmployeeModel
 
     public function getEmployee(){
         $this->db->query("SELECT * FROM nhanvien");
-        $this->db->execute();
-        return $this->db->stmt;
+        if($this->db->execute()) {
+            return $this->db->stmt;;
+        } else {
+            return false;
+        }
     }
 
     public function getEmployee_read($id){
         $this->db->query("SELECT * FROM nhanvien WHERE id = :id");
         $this->db->bind(":id", $id);
         $this->db->execute();
-        return $this->db->stmt;
+        return $this->db->stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function create_db($name,  $address,  $salary){
@@ -44,6 +47,22 @@ class EmployeeModel
             return true;
         }else
             return false;
+    }
+
+    public function update_db($name, $address, $salary, $id) {
+        $this->db->query("UPDATE nhanvien SET name=:name, address=:address, salary=:salary WHERE id=:id");
+
+    // if($stmt = $pdo->prepare($sql)){
+        // Bind variables to the prepared statement as parameters
+        $this->db->bind(":name", $name);
+        $this->db->bind(":address", $address);
+        $this->db->bind(":salary", $salary);
+        $this->db->bind(":id", $id);
+        if($this->db->stmt->execute()) {
+            return true;
+        }else {
+            return false;
+        }
     }
     
 }

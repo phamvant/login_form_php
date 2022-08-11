@@ -1,5 +1,9 @@
 <?php
 
+$name = $data["name"];
+$address = $data["address"];
+$salary = $data["salary"];
+
 ?>
     <link rel="stylesheet" href="../../assets/login/styles.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -36,7 +40,7 @@
                     </div>
                     <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                     <input type="submit" class="btn btn-primary" value="Submit">
-                    <a href="../../index.php?controller=pages&action=index" class="btn btn-secondary ml-2">Cancel</a>
+                    <a href="../../index.php?controller=employee&action=index" class="btn btn-secondary ml-2">Cancel</a>
                 </form>
             </div>
         </div>

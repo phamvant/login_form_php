@@ -21,8 +21,7 @@
                 <h2 class="mt-5">Create Record</h2>
                 <p>Please fill this form and submit to add employee record to the database.</p>
                 <?php 
-                include_once '/home/thuan/login_form_php/helpers/session_helper.php'; 
-                flash('create'); ?>
+                // flash('create'); ?>
                 <form style ="color:white" action="./controllers/EmployeeController.php" method="post">
                 <input type="hidden" name="type" value="create">
                     <div class="form-group">
@@ -41,7 +40,7 @@
                         <span class="invalid-feedback"><?php echo $salary_err;?></span>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Submit">
-                    <a href="./index.php?controller=pages&action=index" class="btn btn-secondary ml-2">Cancel</a>
+                    <a href="./index.php?controller=employee&action=index" class="btn btn-secondary ml-2">Cancel</a>
                 </form>
             </div>
         </div>

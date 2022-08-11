@@ -8,7 +8,7 @@ include_once '/home/thuan/login_form_php/helpers/session_helper.php';
 <div class="container">
   <?php 
   if(isset($_SESSION['usersId'])) {
-    echo '<a href="index.php?controller=pages&action=index" class="btn">';
+    echo '<a href="index.php?controller=employee&action=index" class="btn">';
   }else {
     echo '<a href="index.php?controller=pages&action=login" class="btn">';
   }
