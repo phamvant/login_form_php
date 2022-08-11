@@ -1,6 +1,6 @@
 <?php
 require_once('controllers/BaseController.php');
-
+require_once('/home/thuan/login_form_php/helpers/session_helper.php');
 class PagesController extends BaseController
 {
   function __construct()
@@ -15,7 +15,11 @@ class PagesController extends BaseController
 
   public function login()
   {
-    $this->render('login');
+    if(isset($_SESSION['usersName'])){
+      $this->index();
+    }else {
+      $this->render('login');
+    }
   }
 
   public function signup()
@@ -30,7 +34,11 @@ class PagesController extends BaseController
 
   public function index()
   {
-    $this->render('index');
+    if(!isset($_SESSION['usersName'])){
+      $this->login();
+    }else {
+      $this->render('index');
+    }
   }
 
   public function delete()

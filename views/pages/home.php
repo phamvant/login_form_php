@@ -1,5 +1,5 @@
 <?php 
-include_once './helpers/session_helper.php'; 
+include_once '/home/thuan/login_form_php/helpers/session_helper.php'; 
 ?>
 
 <link rel="stylesheet" href="../../assets/home/styles.css" type="text/css">

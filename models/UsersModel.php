@@ -1,26 +1,13 @@
 <?php
-require_once '../connection.php';
+require_once '/home/thuan/login_form_php/connection.php';
 
 class UsersModel {
 
-    private $db;
 
     public function __construct(){
         $this->db = new Database;
     }
 
-    // public function view_content(){
-    //     $this->db->query('SELECT * FROM nhanvien');
-
-    // }
-
-    //Find user by email or username
-
-    public function view(){
-        $this->db->query('SELECT * FROM nhanvien');
-        $row = $this->db->single();
-        return $row;
-    }
     public function findUserByEmailOrUsername($email, $username){
         $this->db->query('SELECT * FROM users WHERE usersUid = :username OR usersEmail = :email');
         $this->db->bind(':username', $username);

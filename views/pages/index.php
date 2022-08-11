@@ -1,4 +1,7 @@
+<?php
 
+?>
+    <link rel="stylesheet" href="../../assets/login/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/index/styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -22,19 +25,20 @@
     </script>
 </head>
 <body>
-    <div class="wrapper">
+    <div style="color:white", class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">nhanvien Details</h2>
+                        <h2 class="pull-left">Employees Details</h2>
                         <a href="index.php?controller=pages&action=create" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a>
-                    </div>
+                    </div style="color:white">
                     <?php
-                    $db = new Database;
-                    if($db->query("SELECT * FROM nhanvien") | 1){
-                        if($db->rowCount() > 0 | 1){
-                            echo '<table class="table table-bordered table-striped">';
+                    include '/home/thuan/login_form_php/controllers/EmployeeController.php';
+
+                    if($data = $init->getE()){
+                    //     if($db->rowCount() > 0 | 1){
+                            echo '<table style ="color:white" class="table table-bordered table-striped">';
                             echo "<thead>";
                             echo "<tr>";
                             echo "<th>#</th>";
@@ -45,8 +49,8 @@
                             echo "</tr>";
                             echo "</thead>";
                             echo "<tbody>";
-                                $db->execute();
-                                while($row = $db->stmt->fetch(PDO::FETCH_OBJ)){
+                                // $db->execute();
+                                while($row = $data->fetch(PDO::FETCH_OBJ)){
                                     // $row = $db->stmt->fetch(PDO::FETCH_OBJ);
                                     echo "<tr>";
                                     echo "<td>" . $row->id . "</td>";
@@ -54,7 +58,7 @@
                                     echo "<td>" . $row->address . "</td>";
                                     echo "<td>" . $row->salary . "</td>";
                                     echo "<td>";
-                                    // echo '<a href="read.php?id='. $row->id .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                    echo '<a href="/views/pages/read.php?id='. $row->id .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
                                     echo '<a href="/views/pages/update.php?id='. $row->id .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
                                     echo '<a href="/views/pages/delete.php?id='. $row->id .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                     echo "</td>";
@@ -63,10 +67,10 @@
                                 echo "</tbody>";                            
                             echo "</table>";
                             // Free result set
-                            unset($result);
-                        } else{
-                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
-                        }
+                            // unset($result);
+                        // } else{
+                        //     echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        // }
                     } else{
                         echo "Oops! Something went wrong. Please try again later.";
                     }
@@ -80,7 +84,7 @@
     </div>
     <div class="floating-container">
   <!-- <div class="floating-button">+</div> -->
-  <a href="index.php?controller=pages&action=home" class="floating-button" name="submit">Home</a>
+  <a href="./index.php?controller=pages&action=home" class="floating-button" name="submit">Home</a>
   <div class="element-container">
   </div>
 </div>

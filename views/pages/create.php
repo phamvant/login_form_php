@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Record</title> -->
+    <link rel="stylesheet" href="../../assets/login/styles.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -13,13 +14,16 @@
     </style>
 </head>
 <body>
-<div class="wrapper">
+<div style ="color:white" class="wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <h2 class="mt-5">Create Record</h2>
                 <p>Please fill this form and submit to add employee record to the database.</p>
-                <form action="./controllers/UsersController.php" method="post">
+                <?php 
+                include_once '/home/thuan/login_form_php/helpers/session_helper.php'; 
+                flash('create'); ?>
+                <form style ="color:white" action="./controllers/EmployeeController.php" method="post">
                 <input type="hidden" name="type" value="create">
                     <div class="form-group">
                         <label>Name</label>

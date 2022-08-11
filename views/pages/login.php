@@ -1,5 +1,5 @@
 <?php 
-include_once './helpers/session_helper.php'; 
+include_once '/home/thuan/login_form_php/helpers/session_helper.php'; 
 ?>
 
 <link rel="stylesheet" href="../../assets/login/styles.css" type="text/css">
@@ -16,9 +16,9 @@ include_once './helpers/session_helper.php';
     <li><a href="index.php">Home</a></li>
     <li> <a href="./index.php?controller=pages&action=signup">Sign up</a>
         </li>
-    <li> <a href="./controllers/UsersController.php?q=logout">Logout</a>
+    <li> <a href="https://sun-asterisk.vn/">About</a>
         </li>
-    <li><a href="">About</a></li>
+    <li><a href="https://sun-asterisk.vn/chinh-sach-phuc-loi/">Term</a></li>
   </ul>
 </nav>
 
@@ -40,9 +40,12 @@ include_once './helpers/session_helper.php';
 
     <div class="login-box">
     <h2>Login</h2>
+    <?php flash('login')?>
     <br>
+
     <form method="post" action="./controllers/UsersController.php">
         <div class="user-box">
+
         <input type="hidden" name="type" value="login">
         <input type="text" name="name/email" required="" value="<?php if(isset($_COOKIE["name/email"])) { echo $_COOKIE["name/email"]; } ?>">
         <label>Username</label>

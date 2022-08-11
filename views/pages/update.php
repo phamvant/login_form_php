@@ -1,7 +1,7 @@
 <?php
 
 ?>
-
+    <link rel="stylesheet" href="../../assets/login/styles.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -11,13 +11,13 @@
     </style>
 </head>
 <body>
-<div class="wrapper">
+<div style ="color:white"  class="wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <h2 class="mt-5">Update Record</h2>
                 <p>Please edit the input values and submit to update the employee record.</p>
-                <form action="../../controllers/UsersController.php" method="post">
+                <form style ="color:white" action="../../controllers/EmployeeController.php" method="post">
                 <input type="hidden" name="type" value="update">
                     <div class="form-group">
                         <label>Name</label>

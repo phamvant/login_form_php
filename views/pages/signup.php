@@ -1,5 +1,5 @@
 <?php 
-include_once './helpers/session_helper.php'; 
+include_once '/home/thuan/login_form_php/helpers/session_helper.php'; 
 ?>
 
 <link rel="stylesheet" href="../../assets/login/styles.css" type="text/css">
@@ -39,6 +39,7 @@ include_once './helpers/session_helper.php';
 
     <div class="login-box">
     <h2>Login</h2>
+    <?php flash('register'); ?>
     <form method="post" action="./controllers/UsersController.php">
         <div class="user-box">
         <input type="hidden" name="type" value="register">
