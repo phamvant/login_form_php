@@ -41,7 +41,7 @@
                             echo '<table style ="color:white" class="table table-bordered table-striped">';
                             echo "<thead>";
                             echo "<tr>";
-                            echo "<th>#</th>";
+                            echo "<th>ID</th>";
                             echo "<th>Name</th>";
                             echo "<th>Address</th>";
                             echo "<th>Salary</th>";
@@ -58,9 +58,9 @@
                                     echo "<td>" . $row->address . "</td>";
                                     echo "<td>" . $row->salary . "</td>";
                                     echo "<td>";
-                                    echo '<a href="/views/pages/read.php?id='. $row->id .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                    echo '<a href="/views/pages/update.php?id='. $row->id .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                    echo '<a href="/views/pages/delete.php?id='. $row->id .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                    echo '<a href="index.php?controller=pages&action=read&id='. $row->id .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                    echo '<a href="index.php?controller=pages&action=update&id='. $row->id .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                    echo '<a href="index.php?controller=pages&action=delete&id='. $row->id .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                     echo "</td>";
                                     echo "</tr>";
                                 }

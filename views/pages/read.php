@@ -1,6 +1,8 @@
 <?php
 
-include '/home/thuan/login_form_php/controllers/EmployeeController.php';
+include_once '/home/thuan/login_form_php/controllers/EmployeeController.php';
+// echo $_GET["id"];
+// exit();
 if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     $row = $init->getEr(trim($_GET["id"]))->fetch(PDO::FETCH_ASSOC);
 }
